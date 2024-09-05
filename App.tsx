@@ -10,6 +10,7 @@ import BackButton from './components/Headers/BackButton';
 import CustomDrawerContent from './components/CustomDrawerContent';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Host } from 'react-native-portalize';
+import AttractionDetails from './screens/Attractions/AttractionDetails';
 
 // Create Stack Navigator
 const Stack = createNativeStackNavigator();
@@ -52,6 +53,15 @@ const AppStack = () => {
           options={{
             title: 'Hotel Details',
             headerLeft: () => <BackButton />,
+          }}
+        />
+        <Stack.Screen
+          name="AttractionDetails"
+          component={AttractionDetails}
+          options={{
+            title: 'Attractions Details',
+            headerLeft: () => <BackButton />,
+            headerShown: false
           }}
         />
       </Stack.Group>

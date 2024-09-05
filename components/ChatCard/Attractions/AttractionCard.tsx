@@ -1,16 +1,29 @@
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Button, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
 import CustomButton from "../../CustomButton";
 import { commonThemeData } from "../../../themes/Common";
 const { width } = Dimensions.get('screen');
+import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
+
 
 
 const AttractionCard: React.FC = () => {
     const navigation = useNavigation<NativeStackNavigatorProps>();
+    const triggerHaptic = () => {
+        // Options for the feedback
+        const options = {
+            enableVibrateFallback: true,
+            ignoreAndroidSystemSettings: false,
+        };
+
+        // Trigger different types of feedback
+        ReactNativeHapticFeedback.trigger('impactMedium', options);
+    };
+
     return (
         <View style={styles.wrapCard}>
-            <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+            <TouchableOpacity onPress={() => navigation.navigate('AttractionDetails')}>
                 <Image
                     style={styles.image}
                     source={{ uri: 'https://www.jetwinghotels.com/wp-content/uploads/2019/06/bentota-hotels-category-744x653-1.jpg' }}
@@ -29,7 +42,18 @@ const AttractionCard: React.FC = () => {
                     />
                     <Text style={styles.ratingText}>4.5 Rating</Text>
                 </View>
-                <CustomButton />
+                <View style={styles.wrapButtons}>
+                    {/* <CustomButton /> */}
+                    <TouchableOpacity style={styles.viewMoreButton}>
+                        <Text style={styles.viewMoreText}>View More</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.plusIconWrapper} onPress={triggerHaptic}>
+                        <Image
+                            style={styles.plusIcon}
+                            source={require('../../../assets/images/plus.png')}
+                        />
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     )
@@ -64,7 +88,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
         right: 10,
-        paddingVertical:3,
+        paddingVertical: 3,
         paddingHorizontal: 10,
         flexDirection: 'row',
         alignItems: 'center',
@@ -104,6 +128,34 @@ const styles = StyleSheet.create({
     },
     mainTitle: {
         fontWeight: 'bold',
+    },
+    viewMoreButton: {
+
+
+    },
+    viewMoreText: {
+        fontSize: 14,
+        color: '#448eea'
+    },
+    wrapButtons: {
+        gap: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    plusIconWrapper: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10,
+        borderRadius: 25,
+        width: 35,
+        height: 35,
+        backgroundColor: 'rgba(68,153, 42, 0.1)'
+    },
+    plusIcon: {
+        width: 15,
+        height: 15,
+        tintColor: '#44992a'
     }
 })
 

@@ -15,6 +15,7 @@ import HotelListCard from './ChatCard/HotelsList';
 
 import { Message } from '../types/ChatView';
 import AttractionListCard from './ChatCard/Attractions/AttractionList';
+import { commonThemeData } from '../themes/Common';
 
 
 const ChatMainView: React.FC = () => {
@@ -108,12 +109,13 @@ const styles = StyleSheet.create({
     },
     messagesList: {
         // paddingHorizontal: 10,
-        paddingTop: 10,
+        paddingVertical: 20,
     },
     messageContainer: {
-        padding: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 15,
         marginHorizontal: 10,
-        borderRadius: 10,
+        borderRadius: commonThemeData.radius + 10,
         marginBottom: 10,
         maxWidth: '80%',
     },
