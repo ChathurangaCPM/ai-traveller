@@ -16,6 +16,8 @@ import HotelListCard from './ChatCard/HotelsList';
 import { Message } from '../types/ChatView';
 import AttractionListCard from './ChatCard/Attractions/AttractionList';
 import { commonThemeData } from '../themes/Common';
+import triggerHapticFeedback from '../assets/Common/HabticFeedback';
+
 
 
 const ChatMainView: React.FC = () => {
@@ -24,6 +26,9 @@ const ChatMainView: React.FC = () => {
 
     const sendMessage = () => {
         if (input.trim()) {
+            // Options for the feedback
+         
+            triggerHapticFeedback()
             const newMessage: Message = { id: Date.now().toString(), text: input, sender: 'user', type: 'text' };
             setMessages(prevMessages => [newMessage, ...prevMessages]);
 
