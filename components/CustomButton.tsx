@@ -13,11 +13,12 @@ const styles = StyleSheet.create({
     buttonWrapper: {
         padding: commonThemeData.button.padding,
         borderRadius: commonThemeData.radius,
-        backgroundColor: commonThemeData.primaryColor
+        backgroundColor: commonThemeData.secondaryColor
     },
     buttonText:{
-        color: commonThemeData.button.textColor,
-        textAlign: 'center'
+        color: '#000',
+        textAlign: 'center',
+        fontWeight: '600'
     }
 })
 

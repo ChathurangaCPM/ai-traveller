@@ -26,7 +26,7 @@ const AttractionCard: React.FC = () => {
             <TouchableOpacity onPress={() => navigation.navigate('AttractionDetails')}>
                 <Image
                     style={styles.image}
-                    source={{ uri: 'https://www.jetwinghotels.com/wp-content/uploads/2019/06/bentota-hotels-category-744x653-1.jpg' }}
+                    source={{ uri: 'https://images.squarespace-cdn.com/content/v1/5a3bb03b4c326d76de73ddaa/9732566d-6b33-4a1a-ba0c-1b73ed8848a4/The+Common+Wanderer-9888.jpg' }}
                 />
                 <View style={styles.distanceWrapper}>
                     <Image style={styles.distanceIcon} source={require('../../../assets/images/direction.png')} />
@@ -34,7 +34,7 @@ const AttractionCard: React.FC = () => {
                 </View>
             </TouchableOpacity>
             <View style={styles.cardContent}>
-                <Text style={styles.mainTitle}>Jetwing Hotel</Text>
+                <Text style={styles.mainTitle}>Nine Arch</Text>
                 <View style={styles.ratingWrapper}>
                     <Image
                         style={styles.ratingIcon}
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         shadowRadius: 1.00,
 
         elevation: 1,
-        marginRight: 20
+        // marginRight: 20
     },
     image: {
         height: 150,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         width: 35,
         height: 35,
-        backgroundColor: 'rgba(68,153, 42, 0.1)'
+        backgroundColor: commonThemeData.secondaryColor
     },
     plusIcon: {
         width: 15,

@@ -4,7 +4,12 @@ import AttractionCard from "./AttractionCard";
 const AttractionListCard: React.FC = () => {
 
     return (
-        <ScrollView horizontal style={styles.wrapContainer} showsHorizontalScrollIndicator={false}>
+        <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.wrapContainer}
+            keyboardShouldPersistTaps="handled"
+        >
             <AttractionCard />
             <AttractionCard />
             <AttractionCard />
@@ -15,7 +20,8 @@ const AttractionListCard: React.FC = () => {
 const styles = StyleSheet.create({
     wrapContainer: {
         paddingHorizontal: 20,
-        marginBottom: 20
+        marginBottom: 20,
+        gap: 20
     },
 })
 
